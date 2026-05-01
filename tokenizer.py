@@ -70,3 +70,17 @@ class SimpleTokenizerV2:
 # text2 = "In the sunlit terraces of the palace."
 # text = " <|endoftext|> ".join((text1, text2))
 # print(text)
+
+import tiktoken
+
+tokenizer=tiktoken.get_encoding("gpt2") #we got byte-pair encoding used by gpt-2
+text = (
+    "Hello, do you like tea? <|endoftext|> In the sunlit terraces"
+     "of someunknownPlace."
+)
+
+integers = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
+# print(integers)
+
+strings=tokenizer.decode(integers)
+#print(strings)
