@@ -27,7 +27,7 @@ print(attn_scores)
 attn_scores = inputs @ inputs.T
 print(attn_scores)
 #normalization
-attn_weights = torch.softmax(attn_scores, dim=-1) #dim=-1 means we gotta go in column
+attn_weights = torch.softmax(attn_scores, dim=-1) #dim=-1 means we gotta normalize along the columns
 print(attn_weights)
 #finally multiply the attention weigth with inputs and get the context vectors
 all_context_vecs = attn_weights @ inputs
