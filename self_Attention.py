@@ -22,4 +22,13 @@ for i, x_i in enumerate(inputs):
 
 print(attn_scores)
 
-
+#making use of linear algebra and performing simplified self attention
+# since loops are slower we gonna do matrix multiplication btw input matrix and input transpose , gotta make use of linear algebra
+attn_scores = inputs @ inputs.T
+print(attn_scores)
+#normalization
+attn_weights = torch.softmax(attn_scores, dim=-1) #dim=-1 means we gotta go in column
+print(attn_weights)
+#finally multiply the attention weigth with inputs and get the context vectors
+all_context_vecs = attn_weights @ inputs
+print(all_context_vecs)
