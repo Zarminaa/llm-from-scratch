@@ -1,5 +1,6 @@
 import torch.nn as nn
 import torch
+import GELU
 class ExampleDeepNeuralNetwork(nn.Module):
     def __init__(self, layer_sizes, use_shortcut):
         super().__init__()
