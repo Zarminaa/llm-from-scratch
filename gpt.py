@@ -213,3 +213,7 @@ context_size=GPT_CONFIG_124M["context_length"]
 )
 print("Output:", out)
 print("Output length:", len(out[0]))
+
+
+decoded_text = tokenizer.decode(out.squeeze(0).tolist())
+print(decoded_text)
